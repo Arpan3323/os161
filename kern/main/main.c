@@ -16,6 +16,7 @@
 #include <vm.h>
 #include <syscall.h>
 #include <version.h>
+#include "hello.h"
 
 /*
  * These two pieces of data are maintained by the makefiles and build system.
@@ -77,6 +78,7 @@ boot(void)
 	dev_bootstrap();
 	vm_bootstrap();
 	kprintf_bootstrap();
+        hello();
 
 	/* Default bootfs - but ignore failure, in case emu0 doesn't exist */
 	vfs_setbootfs("emu0");
