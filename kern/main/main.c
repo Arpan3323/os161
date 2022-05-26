@@ -78,6 +78,19 @@ boot(void)
 	dev_bootstrap();
 	vm_bootstrap();
 	kprintf_bootstrap();
+        /* Adding debugging messages */
+        DEBUG(DB_VM, "This message indicates that the debug flag for VM has been set.\n");
+        //DEBUG(DB_SYSCALL, "An OS system-call has been invoked and debug flag for SYSCALL has been set.\n");
+        //DEBUG(DB_INTERRUPT, "INTERRUPT flag has been set and the processor has been signalled to suspend execution and work on the occured interrupt.\n");
+        //DEBUG(DB_DEVICE, "A device has been detected and DEVICE flag has been set.\n");
+        //DEBUG(DB_THREADS, "THREADS flag has been set as an ongoing process is performing multiple tasks that are not dependant on each other. If one task is blocked, the other tasks will proceed without interruptions.\n");
+        //DEBUG(DB_EXEC, "The EXEC flag has been set as an exec system call executes a file which is residing in an active process.\n");
+        //DEBUG(DB_VFS, "The VFS flag has been set. VFS provides a uniform interface for the kernel to deal with various I/O requests and specifies a standard interface that each file system must support.\n");
+        //DEBUG(DB_SFS, "SFS flag has been set. SFS is a global file system for Unix-like operating systems, it also provides encryption of various communications as well as authentication.\n");
+        //DEBUG(DB_NET, "NET flag has been set as a network has been established with another machine.\n");
+        //DEBUG(DB_NETFS, "NETFS flag has been set. NETFS is a boot-time script used to mount or unmount Network File System.\n");
+        kprintf("\n");
+
         hello();
 
 	/* Default bootfs - but ignore failure, in case emu0 doesn't exist */
